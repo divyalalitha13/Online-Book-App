@@ -1,0 +1,29 @@
+<app-user-layout></app-user-layout>
+<div style="text-align:center">
+    <h4>My Reviews</h4>
+    <div class="table-responsive">
+        <table class="table" style="border:5px solid rgba(220,230,242,1)" *ngIf="reviews && reviews.length!=0">
+            <tr style="background-color:rgba(220,230,242,1);font-size:12pt">
+                <th style="text-align:center">Order ID</th>
+                <th style="text-align:center">Book</th>
+                <th style="text-align:center">Book Name</th>
+                <th style="text-align:center">Author Name</th>
+                <th style="text-align:center">Rating</th>
+                <th style="text-align:center">Comments</th>
+            </tr>
+            <tr *ngFor="let r of reviews" style="background-color:white;text-align:center;font-size:12pt">
+                <td>{{r.orderId}}</td>
+                <td><img [src]="getImage(r.bookName) " class=" card-img-top " alt="This is an image " style="width:100px;height:150px; "></td>
+                <td>{{r.bookName}}</td>
+                <td>{{r.authorName}}</td>
+                <td>
+                    <p *appRating="r.rating" class="fa fa-star" style="color:gold"></p>
+                </td>
+                <td>{{r.comments}}</td>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="showMsg">
+        <h4 class="jumbotron" style="text-align:center">No reviews available to show</h4>
+    </div>
+</div>

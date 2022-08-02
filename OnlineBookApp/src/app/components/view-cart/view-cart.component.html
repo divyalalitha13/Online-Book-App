@@ -1,0 +1,31 @@
+<app-user-layout></app-user-layout>
+<div style="text-align:center;">
+    <!-- <h1 ngClass='red size30'>View Cart</h1> -->
+    <h6 *ngIf="amount!=0" style="text-align: center"><b>Total Amount: Rs.{{amount}}/-</b></h6>
+    <button *ngIf="amount!=0" (click)="payment()" style="text-align: right" class="btn btn-primary">Proceed To Payment</button>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col" *ngFor="let book of books ">
+            <div class="card-body justify-content-center " style="width:18rem; " *ngIf="books ">
+                <!-- <a (click)="ViewMoreInfo(package) "><img *ngIf="package.packageName=='Andaman and Nicobar' " src="assets/Andaman.jpg " class="card-img-top " alt="This is an image "></a> -->
+                <img [src]="getImage(book.bookName) " title={{book.description}} class=" card-img-top " alt="This is an image " style="width:100px;height:150px; ">
+                <br>
+                <br>
+                <div class="card-body ">
+                    <h6 class="card-title ">{{book.bookName}}</h6> by
+                    <h6 class="card-title ">{{book.authorName}}</h6>
+                    <p><b>Cost: </b>Rs.{{book.cost}}/-</p>
+                    <p><b>Quantity:</b> {{book.cartQuantity}}</p>
+                    <input style="margin-right: 10px;margin-top: 10px;" (change)="updateCartQuantity(quant.value,book)" #quant type="number" id="quantity" name="quant" min="1" max="{{book.maxQuantity}}" value={{book.cartQuantity}}>
+                    <button (click)="removeFromCart(book)" class="btn btn-dark" style="margin-right: 15px;" title="Remove from Cart"><span class="fa fa-remove"></span></button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="books.length==0 ">
+        <h4 class="jumbotron " style="text-align:center; ">No Books available in Cart</h4>
+    </div>
+</div>

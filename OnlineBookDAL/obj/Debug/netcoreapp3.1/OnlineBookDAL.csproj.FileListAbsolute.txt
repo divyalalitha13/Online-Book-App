@@ -1,0 +1,13 @@
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\bin\Debug\netcoreapp3.1\OnlineBookDAL.deps.json
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\bin\Debug\netcoreapp3.1\OnlineBookDAL.dll
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\obj\Debug\netcoreapp3.1\OnlineBookDAL.csprojAssemblyReference.cache
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\obj\Debug\netcoreapp3.1\OnlineBookDAL.AssemblyInfoInputs.cache
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\obj\Debug\netcoreapp3.1\OnlineBookDAL.AssemblyInfo.cs
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\bin\Debug\netcoreapp3.1\OnlineBookDAL.runtimeconfig.json
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\bin\Debug\netcoreapp3.1\OnlineBookDAL.runtimeconfig.dev.json
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\bin\Debug\netcoreapp3.1\OnlineBookDAL.pdb
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\obj\Debug\netcoreapp3.1\OnlineBookDAL.dll
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\obj\Debug\netcoreapp3.1\OnlineBookDAL.pdb
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\obj\Debug\netcoreapp3.1\OnlineBookDAL.genruntimeconfig.cache
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\DIVYA LALITHA\source\repos\OnlineBook\OnlineBookDAL\obj\Debug\netcoreapp3.1\OnlineBookDAL.csproj.CoreCompileInputs.cache

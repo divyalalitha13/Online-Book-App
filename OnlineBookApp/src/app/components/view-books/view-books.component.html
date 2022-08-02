@@ -1,0 +1,55 @@
+<app-user-layout></app-user-layout>
+<div style="text-align:center;">
+    <br>
+    <!-- <h1 ngClass='red size30'>View Books</h1> -->
+    <h6 style="color:dimgrey;font-size:small ">**Hover over image for description**</h6>
+    <br>
+    <div class="row ">
+        <div class="col-md-4 " style="text-align:right ">
+            <label>Search:</label>
+        </div>
+        <div class="col-md-3 ">
+            <input type="text " [(ngModel)]="bookAndGenreName " class="form-control " (input)="searchBookByName() ">
+        </div>
+        <div class="col-sm-2 " style="text-align:right ">
+            <label>Select Genre:</label>
+        </div>
+        <div class="col-md-2 ">
+            <select class="form-control " #genredrop (change)="searchBookByGenre(genredrop.value) ">
+                <option value="All">All Genres</option>
+                <option *ngFor="let genre of genres " value={{genre.genreName}}>
+                    {{genre.genreName}}
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row bmi ">
+        <div class="col " *ngFor="let book of filteredbooksAndGenre ">
+            <div class="card-body justify-content-center " style="width:18rem; " *ngIf="filteredbooksAndGenre ">
+                <!-- <a (click)="ViewMoreInfo(package) "><img *ngIf="package.packageName=='Andaman and Nicobar' " src="assets/Andaman.jpg " class="card-img-top " alt="This is an image "></a> -->
+                <img [src]="getImage(book.bookName) " title={{book.description}} class=" card-img-top " alt="This is an image " style="width:100px;height:150px; ">
+                <div class="card-body ">
+                    <br>
+                    <h6 class="card-title ">{{book.bookName}}</h6> by
+                    <h6 class="card-title ">{{book.authorName}}</h6>
+                    <p><b>Genre Name: </b>{{book.genreName}}</p>
+                    <p><b>Cost: </b>Rs.{{book.cost}}/-</p>
+
+                    <!-- <p class="card-text justify-content-center ">{{book.description}}</p> -->
+                    <!-- <button (click)="ViewMoreInfo(package) " class="btn btn-primary ">More Details...</button> -->
+                    <button (click)="addToCart(book)" [disabled]="disabled(book.maxQuantity)" class="btn btn-dark" style="margin-right: 15px;" title="Add to Cart"><span class="fa fa-shopping-cart"></span></button>
+                    <button (click)="addToWishlist(book)" class="btn btn-dark" title="Add to Wishlist"><span class="fa fa-heart" style="color:white"></span></button>
+                    <h6 style="color:red" *ngIf="disabled(book.maxQuantity)"> Out of stock</h6>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showMsgDiv1 ">
+        <h4 class="jumbotron " style="text-align:center; ">No Books available for {{searchByGenreName}}</h4>
+    </div>
+    <div *ngIf="showMsgDiv2 ">
+        <h4 class="jumbotron " style="text-align:center; ">No Books available</h4>
+    </div>
+</div>

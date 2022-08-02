@@ -1,0 +1,52 @@
+<app-common-layout></app-common-layout>
+<div class="container">
+    <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <h2 style="text-align:center">User Login</h2>
+                <br>
+                <h6 style="text-align:right;color:dimgrey;font-size:small">All fields are mandatory</h6>
+                <div class="form-group">
+                    <div class="col" style="text-align:left">
+                        <label>Email id</label>
+                    </div>
+                    <div class="col;input-group">
+                        <input type="email" name="email" #emailRef="ngModel" class="form-control" ngModel required pattern="[a-zA-Z0-9.]+@[a-zA-Z]+[.](com|COM)" placeholder="Enter Email ID">
+                    </div>
+                    <div *ngIf="emailRef.errors && (emailRef.dirty || emailRef.touched)" style="text-align:left;padding-top:5px;color:red">
+                        <div [hidden]="!emailRef.errors.required">
+                            <p class="alert alert-danger">&nbsp;Email id is mandatory</p>
+                        </div>
+                        <div [hidden]="!emailRef.errors.pattern">
+                            <p class="alert alert-danger">&nbsp;Email id is not entered in proper format</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="from-group">
+                    <div class="col" style="text-align:left">
+                        <label>Password</label>
+                    </div>
+                    <div class="col;input-group">
+                        <input type="password" name="password" #passwordRef="ngModel" class="form-control" ngModel required pattern=".{8,16}" placeholder="Enter password">
+                    </div>
+                    <div *ngIf="passwordRef.errors && (passwordRef.dirty || passwordRef.touched)" style="text-align:left;padding-top:5px;color:red">
+                        <div [hidden]="!passwordRef.errors.required">
+                            <p class="alert alert-danger">&nbsp;Password is mandatory</p>
+                        </div>
+                        <div [hidden]="!passwordRef.errors.pattern">
+                            <p class="alert alert-danger">&nbsp;Password id not entered in proper format.(Password should be between 8-16 characters)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" style="text-align:left">
+                    <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+        <div *ngIf="showMsg" style="color:red;text-align:center">{{msg}}</div>
+    </form>
+</div>

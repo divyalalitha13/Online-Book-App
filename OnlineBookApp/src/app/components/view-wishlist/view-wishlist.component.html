@@ -1,0 +1,26 @@
+<app-user-layout></app-user-layout>
+<div style="text-align:center;">
+    <!-- <h1 ngClass='red size30'>View Wishlist</h1> -->
+    <br>
+    <div class="row bmi ">
+        <div class="col " *ngFor="let book of books ">
+            <div class="card-body justify-content-center " style="width:18rem; " *ngIf="books ">
+                <!-- <a (click)="ViewMoreInfo(package) "><img *ngIf="package.packageName=='Andaman and Nicobar' " src="assets/Andaman.jpg " class="card-img-top " alt="This is an image "></a> -->
+                <img [src]="getImage(book.bookName) " title={{book.description}} class=" card-img-top " alt="This is an image " style="width:100px;height:150px; ">
+                <br>
+                <br>
+                <div class="card-body ">
+                    <h6 class="card-title ">{{book.bookName}}</h6> by
+                    <h6 class="card-title ">{{book.authorName}}</h6>
+                    <p><b>Cost: </b>Rs.{{book.cost}}/-</p>
+                    <button (click)="removeFromWishlist(book)" class="btn btn-dark" style="margin-right: 15px;" title="Remove from Wishlist"><span class="fa fa-remove"></span></button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="books.length==0 ">
+        <h4 class="jumbotron " style="text-align:center; ">No Books available in Wishlist</h4>
+    </div>
+</div>

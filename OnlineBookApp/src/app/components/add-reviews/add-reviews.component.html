@@ -1,0 +1,62 @@
+<app-user-layout></app-user-layout>
+<div class="myContent" style="text-align: center;">
+    <div class="container" style="text-align:center">
+        <form #rateForm="ngForm" (ngSubmit)="rate(rating.value,comment.value)">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <h4 style="text-align:center">Rate Book</h4>
+                    <h6 style="text-align:right;color:dimgrey;font-size:small">*All fields are mandatory</h6>
+                    <div class="card-body justify-content-center " style="width:18rem; ">
+                        <!-- <a (click)="ViewMoreInfo(package) "><img *ngIf="package.packageName=='Andaman and Nicobar' " src="assets/Andaman.jpg " class="card-img-top " alt="This is an image "></a> -->
+                        <img style="text-align:center" [src]="getImage(bookName) " class=" card-img-top " alt="This is an image " style="width:100px;height:150px; ">
+                        <br>
+                        <div class="card-body ">
+                            <p><b>Order ID:</b> {{orderId}}</p>
+                            <h6 class="card-title ">{{bookName}}</h6> by
+                            <h6 class="card-title ">{{authorName}}</h6>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <div class="col" style="text-align: left;">
+                            <label>Ratings:</label>
+                        </div>
+                        <div>
+                            <input type="text" name="rating" #rating="ngModel" [ngModel]="ratings" class="form-control qkinput" pattern="(1|2|3|4|5)" required ngModel>
+                            <div *ngIf="rating.errors&&(rating.dirty||rating.touched)" class="text-danger-validation">
+                                <div [hidden]="!rating.errors.required">
+                                    <p style="color:red;text-align:center">Please enter the rating</p>
+                                </div>
+                                <div [hidden]="!rating.errors.pattern">
+                                    <p style="color:red;text-align:center">Please enter the rating between 1 to 5</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col" style="text-align: left;">
+                            <label>Comments:</label>
+                        </div>
+                        <div>
+                            <input type="text" name="comment" #comment="ngModel" [ngModel]="comments" class="form-control qkinput" required ngModel>
+                            <div *ngIf="comment.errors&&(comment.dirty||comment.touched)" class="text-danger-validation">
+                                <div [hidden]="!comment.errors.required">
+                                    <br/>
+                                    <p style="color:red;text-align:center">Please enter the comments</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <button type="submit" [disabled]="!rateForm.form.valid" class="btn btn-primary">Rate</button>&nbsp;&nbsp;
+                        <a routerLink="/viewOrders">Cancel</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

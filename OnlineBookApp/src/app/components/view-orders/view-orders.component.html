@@ -1,0 +1,29 @@
+<app-user-layout></app-user-layout>
+<div style="text-align:center;">
+    <!-- <h1 ngClass='red size30'>View Orders</h1> -->
+    <br>
+    <div class="row">
+        <div class="col" *ngFor="let book of books ">
+            <div class="card-body justify-content-center " style="width:18rem; " *ngIf="books ">
+                <!-- <a (click)="ViewMoreInfo(package) "><img *ngIf="package.packageName=='Andaman and Nicobar' " src="assets/Andaman.jpg " class="card-img-top " alt="This is an image "></a> -->
+                <img [src]="getImage(book.bookName) " class=" card-img-top " alt="This is an image " style="width:100px;height:150px; ">
+                <br>
+                <div class="card-body ">
+                    <p><b>Order ID:</b> {{book.orderId}}</p>
+                    <h6 class="card-title ">{{book.bookName}}</h6> by
+                    <h6 class="card-title ">{{book.authorName}}</h6>
+                    <p><b>Quantity:</b> {{book.orderQuantity}}</p>
+                    <p><b>Total Cost: </b>Rs.{{book.orderQuantity*book.cost}}/-</p>
+                    <p><b>Order Date:</b> {{book.orderDate|date}}</p>
+                    <p><b>Order Status:</b> {{book.orderStatus}}</p>
+                    <p *ngIf="book.orderStatus=='Ordered'"><b>Est. Delivery:</b> {{book.estimatedDelivery|date}}</p>
+                    <button [disabled]="book.orderStatus=='Ordered'" (click)="addRating(book)" class="btn btn-dark" style="margin-right: 15px;color:white" title="Add Review"><span class="fa fa-comments"></span></button>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="books.length==0 ">
+        <h4 class="jumbotron " style="text-align:center; ">No Orders Placed</h4>
+    </div>
+</div>
