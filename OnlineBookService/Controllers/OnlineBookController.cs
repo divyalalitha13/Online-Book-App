@@ -447,6 +447,7 @@ namespace OnlineBookService.Controllers
             List<BooksInOrders> books = null;
             try
             {
+                repos.UpdateOrderStatus(emailId);
                 books = repos.GetBooksInOrders(emailId);
             }
             catch(Exception ex)
